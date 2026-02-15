@@ -69,11 +69,11 @@ FUNCTION UPDATE_JACOSPAR_INPUT_PARALLEL_Limb_ShoheiDatabase, seq, $
   dphi = ABS(geom(2, *))
 ;    dphi = dblarr(n_elements(geom(0,*)))
 ;    dphi(*) = 0d;相対位相角
-  thesol = geom(3, *)
+  thesol = geom(3, *) 
 ;    thesol = dblarr(n_elements(geom(3, *)))
 ;    thesol(*)=30d;zenith
+  phiobs = geom(10, *)
 
-  ;precision=0.3d
 
   ind = 0
   FOR i = 0, nspectra - 1 DO BEGIN
@@ -162,7 +162,7 @@ FUNCTION UPDATE_JACOSPAR_INPUT_PARALLEL_Limb_ShoheiDatabase, seq, $
       PRINTF, lun, "  mlos = 2         ! method for defining plos (0:theV, 1:theP, 2:angPOV, 3:hgtH)";PRINTF, lun, "  mlos = 2         ! method for defining plos (0:theV, 1:theP, 2:angPOV, 3:hgtH)";;2021/4/19
       PRINTF, lun, "  plos = " + STRING(thetaP(i), FORMAT = "(F11.7)") + " ! theP"
       PRINTF, lun, "  mgeoH = 1        ! tangent point geometry, 1:forward(VPH/PVH), -1:backward(PHV/VHP)"
-      PRINTF, lun, "  phiobs = " + STRING(180D, FORMAT = "(F11.7)") + " ! azimuth angle (deg.) of V-to-P vector";;;;;;;;;;;;;;;;;;;;;;change to nadir parameter  original =180d
+      PRINTF, lun, "  phiobs = " + STRING(phiobs(i), FORMAT = "(F11.7)") + " ! azimuth angle (deg.) of V-to-P vector";;;;;;;;;;;;;;;;;;;;;;change to nadir parameter  original =180d
       ;PRINTF, lun, "  phiobs = " + STRING(-35D, FORMAT = "(F11.7)") + " ! azimuth angle (deg.) of V-to-P vector";;;;;;;;;;;;;;;;;;;;;;change to nadir parameter  original =180d
       IF nofov THEN PRINTF, lun, "  conFOV = 0.0     ! half cone angle (deg.) of FOV" $
       ELSE PRINTF, lun, "  conFOV = " + STRING(fov, FORMAT = "(F11.7)")  + "! half cone angle (deg.) of FOV"
