@@ -40,8 +40,8 @@ FUNCTION GETZTPN_LimbTest_new_20240220_invsaTest, lat, lon, lst, ls, z, cov, rad
   ztpn(8, *) = (INTERPOL(datadust(1, *), datadust(0, *), z));*100d ; dust number density [molec/cm3];to compare with aoki-san
   ztpn(9, *) = (INTERPOL(dataice(1, *), dataice(0, *), z));*2d;*0.1d ; water ice number density [molec/cm3];to compare with aoki-san
 
-  ztpn(8, where(ztpn(8, *) le 0)) = ztpn(8,min(where(ztpn(8, *) le 0))-1L)*0.1d; to calculate cov(log-dustdensity)  小暮　kogure 20210922
-  ztpn(9, where(ztpn(9, *) le 0)) = ztpn(9,min(where(ztpn(9, *) le 0))-1L)*0.1d; to calculate cov(log-dustdensity)  小暮　kogure 20210922
+  ;ztpn(8, where(ztpn(8, *) le 0)) = ztpn(8,min(where(ztpn(8, *) le 0))-1L)*0.1d; to calculate cov(log-dustdensity)  小暮　kogure 20210922
+  ;ztpn(9, where(ztpn(9, *) le 0)) = ztpn(9,min(where(ztpn(9, *) le 0))-1L)*0.1d; to calculate cov(log-dustdensity)  小暮　kogure 20210922
 
   ;  ztpn(8, *) = ztpn(8, 28);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;あとで消す！！2021/6/7
   ;  ztpn(9, *) = ztpn(9, 28) ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;あとで消す！！2021/6/7
